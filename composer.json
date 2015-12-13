@@ -21,7 +21,7 @@
         "source": "http://git.hoa-project.net/"
     },
     "require": {
-        "hoa/consistency": "~2.0",
+        "hoa/consistency": "~0.0",
         "hoa/core"       : "~2.0"
     },
     "require-dev": {
@@ -30,7 +30,8 @@
     "autoload": {
         "psr-4": {
             "Hoa\\Protocol\\": "."
-        }
+        },
+        "files": ["Wrapper.php"]
     },
     "extra": {
         "branch-alias": {
