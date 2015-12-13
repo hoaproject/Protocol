@@ -30,7 +30,8 @@
     "autoload": {
         "psr-4": {
             "Hoa\\Protocol\\": "."
-        }
+        },
+        "files": ["Wrapper.php"]
     },
     "extra": {
         "branch-alias": {
