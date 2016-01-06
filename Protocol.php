@@ -114,7 +114,7 @@ class Protocol extends Node
 
         $this[] = new Node(
             'Application',
-            $cwd,
+            $cwd . DS,
             [
                 new Node('Public', 'Public' . DS)
             ]
