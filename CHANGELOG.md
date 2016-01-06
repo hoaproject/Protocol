@@ -1,0 +1,13 @@
+# 0.16.01.06
+
+  * Git: Add the `.gitignore` file. (Ivan Enderlin, 2016-01-06T08:02:54+01:00)
+  * README: Complete the quick usage section. (Ivan Enderlin, 2016-01-06T07:52:33+01:00)
+  * Test: Write test suite of `…rotocol\Node\Library`. (Ivan Enderlin, 2016-01-05T17:12:09+01:00)
+  * Test: Write test suite of `…a\Protocol\Node\Node`. (Ivan Enderlin, 2016-01-05T17:11:20+01:00)
+  * Test: Write test suite of `Hoa\Protocol\Protocol`. (Ivan Enderlin, 2015-12-18T11:30:56+01:00)
+  * Test: Write test suite of `…a\Protocol\Exception`. (Ivan Enderlin, 2015-12-18T08:07:59+01:00)
+  * Test: Write test suite of `Hoa\Protocol\Wrapper`. (Ivan Enderlin, 2015-12-16T08:39:00+01:00)
+  * Split from `Hoa\Core`. (Ivan Enderlin, 2015-12-13T22:52:08+01:00)
+  * First commit. (Ivan Enderlin, 2015-12-13T22:03:58+01:00)
+
+(first snapshot)
