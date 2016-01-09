@@ -172,7 +172,7 @@ class Resolve extends Console\Dispatcher\Kit
                 'u'    => 'Unfold all possible results.',
                 't'    => 'Print the tree from the path.',
                 'V'    => 'No-verbose, i.e. be as quiet as possible, just print ' .
-                          'essential informations.',
+                          'essential information.',
                 'help' => 'This help.'
             ]), "\n";
 

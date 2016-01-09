@@ -84,7 +84,7 @@ class Wrapper
     }
 
     /**
-     * Retrieve the underlaying resource.
+     * Retrieve the underlying resource.
      *
      * @param   int     $castAs    Can be STREAM_CAST_FOR_SELECT when
      *                             stream_select() is calling stream_cast() or
@@ -211,6 +211,9 @@ class Wrapper
                 $out = chmod($path, $values);
 
                 break;
+
+            default:
+                $out = false;
         }
 
         return $out;
@@ -361,12 +364,11 @@ class Wrapper
      */
     public function dir_closedir()
     {
-        if (null === $handle = closedir($this->getStream())) {
-            $this->_stream     = null;
-            $this->_streamName = null;
-        }
+        closedir($this->getStream());
+        $this->_stream     = null;
+        $this->_streamName = null;
 
-        return $handle;
+        return;
     }
 
     /**
