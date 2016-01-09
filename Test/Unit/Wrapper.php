@@ -307,6 +307,20 @@ class Wrapper extends Test\Unit\Suite
                     ->isEqualTo($_mode);
     }
 
+    public function case_metadata_default()
+    {
+        $this
+            ->given(
+                $option  = 0,
+                $mode    = 0,
+                $wrapper = new SUT()
+            )
+            ->when($result = $wrapper->stream_metadata('foo', $option, $mode))
+            ->then
+                ->boolean($result)
+                    ->isFalse();
+    }
+
     public function case_stream_open()
     {
         $this
@@ -580,24 +594,6 @@ class Wrapper extends Test\Unit\Suite
                     ->isNull()
                 ->variable($wrapper->getStreamName())
                     ->isNull();
-    }
-
-    public function case_dir_closedir_fails()
-    {
-        $this
-            ->given(
-                $this->function->closedir = false,
-                $wrapper = new SUT(),
-                $this->openDirectory($wrapper)
-            )
-            ->when($result = $wrapper->dir_closedir())
-            ->then
-                ->boolean($result)
-                    ->isFalse()
-                ->resource($wrapper->getStream())
-                    ->isStream()
-                ->variable($wrapper->getStreamName())
-                    ->isNotNull();
     }
 
     public function case_dir_opendir()
@@ -884,7 +880,7 @@ class Wrapper extends Test\Unit\Suite
                 $wrapper = new SUT(),
                 $path    = LUT::NO_RESOLUTION
             )
-            ->when(function () use ($wrapper) {
+            ->when(function () use ($wrapper, $path) {
                 $wrapper->url_stat($path, 0);
             })
             ->then

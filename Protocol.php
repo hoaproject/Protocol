@@ -87,7 +87,7 @@ class Protocol extends Node
      * Singleton.
      * To use the `hoa://` protocol shared by everyone.
      *
-     * @return  \HoaProtocol\Protocol;
+     * @return  \Hoa\Protocol\Protocol
      */
     public static function getInstance()
     {

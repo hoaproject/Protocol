@@ -75,8 +75,8 @@ class Node implements \ArrayAccess, \IteratorAggregate
     /**
      * Construct a protocol's node.
      * If it is not a data object (i.e. if it does not extend this class to
-     * overload the `$_name` attribute), we can set the `$_name` atribute
-     * dynamically. This is usefull to create a node on-the-fly.
+     * overload the `$_name` attribute), we can set the `$_name` attribute
+     * dynamically. This is useful to create a node on-the-fly.
      *
      * @param   string  $name        Node's name.
      * @param   string  $reach       Path for the `reach` method.
@@ -374,7 +374,7 @@ class Node implements \ArrayAccess, \IteratorAggregate
     /**
      * Get root the protocol.
      *
-     * @return  \Hoa\Protocol\Node\Node
+     * @return  \Hoa\Protocol\Protocol
      */
     public static function getRoot()
     {
