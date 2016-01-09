@@ -8,7 +8,7 @@
  *
  * New BSD License
  *
- * Copyright © 2007-2015, Hoa community. All rights reserved.
+ * Copyright © 2007-2016, Hoa community. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -44,8 +44,7 @@ use Hoa\Protocol;
  *
  * Abstract class for all `hoa://`'s nodes.
  *
- * @author     Ivan Enderlin <ivan.enderlin@hoa-project.net>
- * @copyright  Copyright © 2007-2015 Ivan Enderlin.
+ * @copyright  Copyright © 2007-2016 Hoa community
  * @license    New BSD License
  */
 class Node implements \ArrayAccess, \IteratorAggregate
@@ -84,7 +83,7 @@ class Node implements \ArrayAccess, \IteratorAggregate
      * @param   array   $children    Node's children.
      * @return  void
      */
-    public function __construct($name = null, $reach = null, Array $children = [])
+    public function __construct($name = null, $reach = null, array $children = [])
     {
         if (null !== $name) {
             $this->_name = $name;
@@ -251,7 +250,7 @@ class Node implements \ArrayAccess, \IteratorAggregate
      * @param   array   &$accumulator    Combination of all possibles paths.
      * @return  void
      */
-    protected function _resolveChoice($reach, Array &$accumulator)
+    protected function _resolveChoice($reach, array &$accumulator)
     {
         if (empty($accumulator)) {
             $accumulator = explode(RS, $reach);
