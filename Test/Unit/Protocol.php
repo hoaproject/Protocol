@@ -114,7 +114,7 @@ class Protocol extends Test\Unit\Suite
             ->when($result = $protocol->resolve('hoa://Application/Foo/Bar', false))
             ->then
                 ->string($result)
-                    ->isEqualTo('Foo/Bar');
+                    ->isEqualTo('/Foo/Bar');
     }
 
     public function case_resolve_unfold_to_existing_resources()
