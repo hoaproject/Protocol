@@ -577,7 +577,9 @@ class Wrapper
 /**
  * Register the `hoa://` protocol.
  */
-stream_wrapper_register('hoa', 'Hoa\Protocol\Wrapper');
+if (!in_array('hoa', stream_get_wrappers())) {
+    stream_wrapper_register('hoa', 'Hoa\Protocol\Wrapper');
+}
 
 }
 
