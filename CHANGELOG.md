@@ -1,3 +1,8 @@
+# 1.16.03.07
+
+  * Node: Fix Composer to lookup in vendor parent dir. (Ivan Enderlin, 2016-03-07T17:25:55+01:00)
+  * Quality: Fix typo, PHPDoc, code smell and tests. (Metalaka, 2016-01-09T13:32:10+01:00)
+
 # 1.16.01.11
 
   * Quality: Drop PHP5.4. (Ivan Enderlin, 2016-01-11T09:15:26+01:00)
