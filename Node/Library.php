@@ -75,7 +75,7 @@ class Library extends Node
                 $out[] = "\r" . $part . strtolower($head) . $queue;
             }
 
-            $out[] = "\r" . dirname(dirname(dirname(__DIR__))) . $queue;
+            $out[] = "\r" . dirname(dirname(dirname(dirname(__DIR__)))) . $queue;
 
             return implode(RS, $out);
         }

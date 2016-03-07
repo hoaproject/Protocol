@@ -120,7 +120,7 @@ class Library extends Test\Unit\Suite
             ->string($result)
                 ->isEqualTo(
                     "\r" . 'Bar' . DS . 'Baz' . DS . 'Qux' . DS . 'hello' . RS .
-                    "\r" . dirname(dirname(dirname(dirname(dirname(__DIR__)))))
+                    "\r" . dirname(dirname(dirname(dirname(dirname(dirname(__DIR__))))))
                 );
     }
 
@@ -136,7 +136,7 @@ class Library extends Test\Unit\Suite
             ->string($result)
                 ->isEqualTo(
                     "\r" . 'Bar' . DS . 'hello' . DS . 'Mister' . DS . 'Anderson' . RS .
-                    "\r" . dirname(dirname(dirname(dirname(dirname(__DIR__))))) . DS . 'Mister' . DS . 'Anderson'
+                    "\r" . dirname(dirname(dirname(dirname(dirname(dirname(__DIR__)))))) . DS . 'Mister' . DS . 'Anderson'
                 );
     }
 }
