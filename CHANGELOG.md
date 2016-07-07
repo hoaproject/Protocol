@@ -1,3 +1,8 @@
+# 1.16.07.07
+
+  * Quality: Fix CS. (Ivan Enderlin, 2016-07-07T23:02:26+02:00)
+  * Test: Fix test case to consider Composer. (Ivan Enderlin, 2016-07-07T22:51:26+02:00)
+
 # 1.16.03.07
 
   * Node: Fix Composer to lookup in vendor parent dir. (Ivan Enderlin, 2016-03-07T17:25:55+01:00)
