@@ -81,9 +81,9 @@ class Protocol extends Test\Unit\Suite
                 ->object($result['Library'])->isInstanceOf('Hoa\Protocol\Node\Library')
                 ->string($result['Library']->reach())
                     ->isEqualTo(
-                        dirname(dirname(dirname(dirname(__DIR__)))) . DS . 'Hoathis' . DS .
+                        dirname(dirname(dirname(dirname(__DIR__)))) . DS . 'hoathis' . DS .
                         RS .
-                        dirname(dirname(dirname(dirname(__DIR__)))) . DS . 'Hoa' . DS
+                        dirname(dirname(dirname(dirname(__DIR__)))) . DS . 'hoa' . DS
                     );
     }
 
@@ -125,7 +125,7 @@ class Protocol extends Test\Unit\Suite
             ->then
                 ->array($result)
                     ->contains(
-                        dirname(dirname(dirname(dirname(__DIR__)))) . DS . 'Hoa'
+                        dirname(dirname(dirname(dirname(__DIR__)))) . DS . 'hoa'
                     );
     }
 
@@ -140,8 +140,8 @@ class Protocol extends Test\Unit\Suite
             ->then
                 ->array($result)
                     ->isEqualTo([
-                        $parentHoaDirectory . DS . 'Hoathis',
-                        $parentHoaDirectory . DS . 'Hoa'
+                        $parentHoaDirectory . DS . 'hoathis',
+                        $parentHoaDirectory . DS . 'hoa'
                     ]);
     }
 }
