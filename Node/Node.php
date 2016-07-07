@@ -81,7 +81,6 @@ class Node implements \ArrayAccess, \IteratorAggregate
      * @param   string  $name        Node's name.
      * @param   string  $reach       Path for the `reach` method.
      * @param   array   $children    Node's children.
-     * @return  void
      */
     public function __construct($name = null, $reach = null, array $children = [])
     {

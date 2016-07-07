@@ -74,7 +74,6 @@ class Protocol extends Node
     /**
      * Initialize the protocol.
      *
-     * @return void
      */
     public function __construct()
     {
