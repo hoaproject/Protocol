@@ -1,3 +1,10 @@
+# 1.17.01.14
+
+  * Quality: Happy new year! (Ivan Enderlin, 2017-01-14T13:25:06+01:00)
+  * Quality: Use `::class` instead of a string. (Ivan Enderlin, 2017-01-14T13:24:38+01:00)
+  * Documentation: New `README.md` file. (Ivan Enderlin, 2016-10-21T16:58:11+02:00)
+  * Documentation: Update `support` properties. (Ivan Enderlin, 2016-10-11T16:59:58+02:00)
+
 # 1.16.07.07
 
   * Quality: Fix CS. (Ivan Enderlin, 2016-07-07T23:02:26+02:00)
