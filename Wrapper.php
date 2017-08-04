@@ -583,7 +583,7 @@ stream_wrapper_register('hoa', Wrapper::class);
 
 }
 
-namespace
+namespace Hoa
 {
 
 /**
