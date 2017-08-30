@@ -207,7 +207,7 @@ class Node implements \ArrayAccess, \IteratorAggregate
     /**
      * Resolve choices, i.e. a reach value has a “;”.
      */
-    protected function _resolveChoice(string $reach, array &$accumulator)
+    protected function _resolveChoice(string $reach, array &$accumulator): void
     {
         if (empty($accumulator)) {
             $accumulator = explode(RS, $reach);
@@ -267,7 +267,7 @@ class Node implements \ArrayAccess, \IteratorAggregate
      * ID of the component.
      * Generic one. Should be overrided in children classes.
      */
-    public function reachId(string $id)
+    public function reachId(string $id): void
     {
         throw new Protocol\Exception(
             'The node %s has no ID support (tried to reach #%s).',
