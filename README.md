@@ -35,7 +35,7 @@ your dependencies, you need to
 require [`hoa/protocol`](https://packagist.org/packages/hoa/protocol):
 
 ```sh
-$ composer require hoa/protocol '~1.0'
+$ composer require hoa/protocol '~2.0'
 ```
 
 For more installation procedures, please read [the Source
