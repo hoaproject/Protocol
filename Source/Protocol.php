@@ -104,7 +104,7 @@ class Protocol extends Node
      */
     protected function initialize()
     {
-        $root = dirname(dirname(__DIR__));
+        $root = dirname(__DIR__, 3);
         $cwd  =
             'cli' === PHP_SAPI
                 ? dirname(realpath($_SERVER['argv'][0]))
@@ -249,4 +249,4 @@ class Protocol extends Node
 /**
  * Flex entity.
  */
-Consistency::flexEntity('Hoa\Protocol\Protocol');
+Consistency::flexEntity(Protocol::class);

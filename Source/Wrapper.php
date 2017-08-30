@@ -34,8 +34,7 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-namespace Hoa\Protocol
-{
+namespace Hoa\Protocol;
 
 /**
  * Class \Hoa\Protocol\Wrapper.
@@ -580,5 +579,3 @@ class Wrapper
  * Register the `hoa://` protocol.
  */
 stream_wrapper_register('hoa', Wrapper::class);
-
-}
