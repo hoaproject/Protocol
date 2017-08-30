@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * Hoa
  *
@@ -36,58 +38,54 @@
 
 namespace Hoa\Protocol\Test\Unit;
 
+use Hoa\Protocol as LUT;
 use Hoa\Protocol\Protocol as SUT;
 use Hoa\Test;
 
 /**
- * Class \Hoa\Protocol\Test\Unit\Protocol.
- *
  * Test suite of the protocol class.
- *
- * @copyright  Copyright © 2007-2017 Hoa community
- * @license    New BSD License
  */
 class Protocol extends Test\Unit\Suite
 {
-    public function case_root_is_a_node()
+    public function case_root_is_a_node(): void
     {
         $this
             ->when($result = SUT::getInstance())
             ->then
                 ->object($result)
-                    ->isInstanceOf('Hoa\Protocol\Node');
+                    ->isInstanceOf(LUT\Node\Node::class);
     }
 
-    public function case_default_tree()
+    public function case_default_tree(): void
     {
         $this
             ->when($result = SUT::getInstance())
             ->then
-                ->object($result['Application'])->isInstanceOf('Hoa\Protocol\Node\Node')
-                    ->object($result['Application']['Public'])->isInstanceOf('Hoa\Protocol\Node\Node')
-                ->object($result['Data'])->isInstanceOf('Hoa\Protocol\Node\Node')
-                    ->object($result['Data']['Etc'])->isInstanceOf('Hoa\Protocol\Node\Node')
-                        ->object($result['Data']['Etc']['Configuration'])->isInstanceOf('Hoa\Protocol\Node\Node')
-                        ->object($result['Data']['Etc']['Locale'])->isInstanceOf('Hoa\Protocol\Node\Node')
-                    ->object($result['Data']['Lost+found'])->isInstanceOf('Hoa\Protocol\Node\Node')
-                    ->object($result['Data']['Temporary'])->isInstanceOf('Hoa\Protocol\Node\Node')
-                    ->object($result['Data']['Variable'])->isInstanceOf('Hoa\Protocol\Node\Node')
-                        ->object($result['Data']['Variable']['Cache'])->isInstanceOf('Hoa\Protocol\Node\Node')
-                        ->object($result['Data']['Variable']['Database'])->isInstanceOf('Hoa\Protocol\Node\Node')
-                        ->object($result['Data']['Variable']['Log'])->isInstanceOf('Hoa\Protocol\Node\Node')
-                        ->object($result['Data']['Variable']['Private'])->isInstanceOf('Hoa\Protocol\Node\Node')
-                        ->object($result['Data']['Variable']['Run'])->isInstanceOf('Hoa\Protocol\Node\Node')
-                        ->object($result['Data']['Variable']['Test'])->isInstanceOf('Hoa\Protocol\Node\Node')
-                ->object($result['Library'])->isInstanceOf('Hoa\Protocol\Node\Library')
+                ->object($result['Application'])->isInstanceOf(LUT\Node\Node::class)
+                    ->object($result['Application']['Public'])->isInstanceOf(LUT\Node\Node::class)
+                ->object($result['Data'])->isInstanceOf(LUT\Node\Node::class)
+                    ->object($result['Data']['Etc'])->isInstanceOf(LUT\Node\Node::class)
+                        ->object($result['Data']['Etc']['Configuration'])->isInstanceOf(LUT\Node\Node::class)
+                        ->object($result['Data']['Etc']['Locale'])->isInstanceOf(LUT\Node\Node::class)
+                    ->object($result['Data']['Lost+found'])->isInstanceOf(LUT\Node\Node::class)
+                    ->object($result['Data']['Temporary'])->isInstanceOf(LUT\Node\Node::class)
+                    ->object($result['Data']['Variable'])->isInstanceOf(LUT\Node\Node::class)
+                        ->object($result['Data']['Variable']['Cache'])->isInstanceOf(LUT\Node\Node::class)
+                        ->object($result['Data']['Variable']['Database'])->isInstanceOf(LUT\Node\Node::class)
+                        ->object($result['Data']['Variable']['Log'])->isInstanceOf(LUT\Node\Node::class)
+                        ->object($result['Data']['Variable']['Private'])->isInstanceOf(LUT\Node\Node::class)
+                        ->object($result['Data']['Variable']['Run'])->isInstanceOf(LUT\Node\Node::class)
+                        ->object($result['Data']['Variable']['Test'])->isInstanceOf(LUT\Node\Node::class)
+                ->object($result['Library'])->isInstanceOf(LUT\Node\Library::class)
                 ->string($result['Library']->reach())
                     ->isEqualTo(
-                        dirname(dirname(dirname(dirname(__DIR__)))) . DS . 'hoathis' . DS .
+                        dirname(__DIR__, 4) . DS . 'hoathis' . DS .
                         RS .
-                        dirname(dirname(dirname(dirname(__DIR__)))) . DS . 'hoa' . DS
+                        dirname(__DIR__, 4) . DS . 'hoa' . DS
                     );
     }
 
-    public function case_resolve_not_a_hoa_path()
+    public function case_resolve_not_a_hoa_path(): void
     {
         $this
             ->given($protocol = SUT::getInstance())
@@ -97,7 +95,7 @@ class Protocol extends Test\Unit\Suite
                     ->isEqualTo('/foo/bar');
     }
 
-    public function case_resolve_to_non_existing_resource()
+    public function case_resolve_to_non_existing_resource(): void
     {
         $this
             ->given($protocol = SUT::getInstance())
@@ -107,7 +105,7 @@ class Protocol extends Test\Unit\Suite
                     ->isEqualTo(SUT::NO_RESOLUTION);
     }
 
-    public function case_resolve_does_not_test_if_exists()
+    public function case_resolve_does_not_test_if_exists(): void
     {
         $this
             ->given($protocol = SUT::getInstance())
@@ -117,7 +115,7 @@ class Protocol extends Test\Unit\Suite
                     ->isEqualTo('/Foo/Bar');
     }
 
-    public function case_resolve_unfold_to_existing_resources()
+    public function case_resolve_unfold_to_existing_resources(): void
     {
         $this
             ->given($protocol = SUT::getInstance())
@@ -125,15 +123,15 @@ class Protocol extends Test\Unit\Suite
             ->then
                 ->array($result)
                     ->contains(
-                        dirname(dirname(dirname(dirname(__DIR__)))) . DS . 'hoa'
+                        dirname(__DIR__, 4) . DS . 'hoa'
                     );
     }
 
-    public function case_resolve_unfold_to_non_existing_resources()
+    public function case_resolve_unfold_to_non_existing_resources(): void
     {
         $this
             ->given(
-                $parentHoaDirectory = dirname(dirname(dirname(dirname(__DIR__)))),
+                $parentHoaDirectory = dirname(__DIR__, 4),
                 $protocol           = SUT::getInstance()
             )
             ->when($result = $protocol->resolve('hoa://Library', false, true))

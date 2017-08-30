@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 /**
  * Hoa
@@ -40,19 +40,12 @@ use Hoa\Console;
 use Hoa\Protocol;
 
 /**
- * Class \Hoa\Protocol\Bin\Resolve.
- *
  * This command resolves some `hoa://` paths.
- *
- * @copyright  Copyright © 2007-2017 Hoa community
- * @license    New BSD License
  */
 class Resolve extends Console\Dispatcher\Kit
 {
     /**
      * Options description.
-     *
-     * @var array
      */
     protected $options = [
         ['exists',     Console\GetOption::NO_ARGUMENT, 'E'],
@@ -67,10 +60,8 @@ class Resolve extends Console\Dispatcher\Kit
 
     /**
      * The entry method.
-     *
-     * @return  int
      */
-    public function main()
+    public function main(): ?int
     {
         $exists  = true;
         $unfold  = false;
@@ -121,7 +112,7 @@ class Resolve extends Console\Dispatcher\Kit
             $foo      = substr($path, 0, 6);
 
             if ('hoa://' !== $foo) {
-                return;
+                return 1;
             }
 
             $path    = substr($path, 6);
@@ -137,7 +128,7 @@ class Resolve extends Console\Dispatcher\Kit
 
             echo $current;
 
-            return;
+            return 0;
         }
 
         if (true === $verbose) {
@@ -154,15 +145,13 @@ class Resolve extends Console\Dispatcher\Kit
             echo $r, "\n";
         }
 
-        return;
+        return 0;
     }
 
     /**
      * The command usage.
-     *
-     * @return  int
      */
-    public function usage()
+    public function usage(): void
     {
         echo
             'Usage   : protocol:resolve <options> path', "\n",
@@ -175,8 +164,6 @@ class Resolve extends Console\Dispatcher\Kit
                           'essential information.',
                 'help' => 'This help.'
             ]), "\n";
-
-        return;
     }
 }
 

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * Hoa
  *
@@ -41,26 +43,21 @@ use Hoa\Protocol\Node\Node as SUT;
 use Hoa\Test;
 
 /**
- * Class \Hoa\Protocol\Test\Unit\Node\Node.
- *
  * Test suite of the node class.
- *
- * @copyright  Copyright © 2007-2017 Hoa community
- * @license    New BSD License
  */
 class Node extends Test\Unit\Suite
 {
-    public function case_implements()
+    public function case_implements(): void
     {
         $this
             ->when($result = new SUT())
             ->then
                 ->object($result)
-                    ->isInstanceOf('ArrayAccess')
-                    ->isInstanceOf('IteratorAggregate');
+                    ->isInstanceOf(\ArrayAccess::class)
+                    ->isInstanceOf(\IteratorAggregate::class);
     }
 
-    public function case_empty_constructor()
+    public function case_empty_constructor(): void
     {
         $this
             ->when($result = new SUT())
@@ -71,7 +68,7 @@ class Node extends Test\Unit\Suite
                     ->isEmpty();
     }
 
-    public function case_constructor_with_a_name()
+    public function case_constructor_with_a_name(): void
     {
         $this
             ->given($name = 'foo')
@@ -83,7 +80,7 @@ class Node extends Test\Unit\Suite
                     ->isEmpty();
     }
 
-    public function case_constructor_with_a_name_and_children()
+    public function case_constructor_with_a_name_and_children(): void
     {
         $this
             ->given(
@@ -98,7 +95,7 @@ class Node extends Test\Unit\Suite
                     ->hasSize(2);
     }
 
-    public function case_offset_set()
+    public function case_offset_set(): void
     {
         $this
             ->given(
@@ -115,27 +112,27 @@ class Node extends Test\Unit\Suite
                     ->isIdenticalTo($node);
     }
 
-    public function case_offset_set_not_a_node()
+    public function case_offset_set_not_a_node(): void
     {
         $this
             ->given($root = new SUT())
-            ->exception(function () use ($root) {
+            ->exception(function () use ($root): void {
                 $root->offsetSet('foo', null);
             })
-                ->isInstanceOf('Hoa\Protocol\Exception');
+                ->isInstanceOf(LUT\Exception::class);
     }
 
-    public function case_offset_set_no_name()
+    public function case_offset_set_no_name(): void
     {
         $this
             ->given($root = new SUT())
-            ->exception(function () use ($root) {
+            ->exception(function () use ($root): void {
                 $root->offsetSet(null, new SUT());
             })
-                ->isInstanceOf('Hoa\Protocol\Exception');
+                ->isInstanceOf(LUT\Exception::class);
     }
 
-    public function case_offset_get()
+    public function case_offset_get(): void
     {
         $this
             ->given(
@@ -149,17 +146,17 @@ class Node extends Test\Unit\Suite
                 ->isIdenticalTo($child);
     }
 
-    public function case_offset_get_an_unknown_name()
+    public function case_offset_get_an_unknown_name(): void
     {
         $this
             ->given($root = new SUT())
-            ->exception(function () use ($root) {
+            ->exception(function () use ($root): void {
                 $root->offsetGet('foo');
             })
-                ->isInstanceOf('Hoa\Protocol\Exception');
+                ->isInstanceOf(LUT\Exception::class);
     }
 
-    public function case_offset_exists()
+    public function case_offset_exists(): void
     {
         $this
             ->given(
@@ -173,7 +170,7 @@ class Node extends Test\Unit\Suite
                     ->isTrue();
     }
 
-    public function case_offset_not_exists()
+    public function case_offset_not_exists(): void
     {
         $this
             ->given($root = new SUT())
@@ -183,7 +180,7 @@ class Node extends Test\Unit\Suite
                     ->isFalse();
     }
 
-    public function case_offset_unset()
+    public function case_offset_unset(): void
     {
         $this
             ->given(
@@ -197,7 +194,7 @@ class Node extends Test\Unit\Suite
                     ->isFalse();
     }
 
-    public function case_reach()
+    public function case_reach(): void
     {
         $this
             ->given(
@@ -210,7 +207,7 @@ class Node extends Test\Unit\Suite
                     ->isEqualTo($reach);
     }
 
-    public function case_reach_with_a_queue()
+    public function case_reach_with_a_queue(): void
     {
         $this
             ->given(
@@ -223,17 +220,17 @@ class Node extends Test\Unit\Suite
                     ->isEqualTo($queue);
     }
 
-    public function case_reach_id()
+    public function case_reach_id(): void
     {
         $this
             ->given($node = new SUT())
-            ->exception(function () use ($node) {
+            ->exception(function () use ($node): void {
                 $node->reachId('foo');
             })
-                ->isInstanceOf('Hoa\Protocol\Exception');
+                ->isInstanceOf(LUT\Exception::class);
     }
 
-    public function case_set_reach()
+    public function case_set_reach(): void
     {
         $this
             ->given(
@@ -248,7 +245,7 @@ class Node extends Test\Unit\Suite
                     ->isEqualTo('baz');
     }
 
-    public function case_get_name()
+    public function case_get_name(): void
     {
         $this
             ->given(
@@ -261,7 +258,7 @@ class Node extends Test\Unit\Suite
                     ->isEqualTo($name);
     }
 
-    public function case_get_iterator()
+    public function case_get_iterator(): void
     {
         $this
             ->given(
@@ -272,7 +269,7 @@ class Node extends Test\Unit\Suite
             ->when($result = new SUT('foo', '', $children))
             ->then
                 ->object($result->getIterator())
-                    ->isInstanceOf('ArrayIterator')
+                    ->isInstanceOf(\ArrayIterator::class)
                 ->array(iterator_to_array($result->getIterator()))
                     ->isEqualTo([
                         'bar' => $childA,
@@ -280,7 +277,7 @@ class Node extends Test\Unit\Suite
                     ]);
     }
 
-    public function case_get_root()
+    public function case_get_root(): void
     {
         $this
             ->when($result = SUT::getRoot())
@@ -289,7 +286,7 @@ class Node extends Test\Unit\Suite
                     ->isIdenticalTo(LUT::getInstance());
     }
 
-    public function case_to_string_as_leaf()
+    public function case_to_string_as_leaf(): void
     {
         $this
             ->given($node = new SUT('foo'))
@@ -299,7 +296,7 @@ class Node extends Test\Unit\Suite
                     ->isEqualTo('foo' . "\n");
     }
 
-    public function case_to_string_as_node()
+    public function case_to_string_as_node(): void
     {
         $this
             ->given(

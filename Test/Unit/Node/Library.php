@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * Hoa
  *
@@ -40,16 +42,11 @@ use Hoa\Protocol\Node\Library as SUT;
 use Hoa\Test;
 
 /**
- * Class \Hoa\Protocol\Test\Unit\Node\Library.
- *
  * Test suite of the library node class.
- *
- * @copyright  Copyright © 2007-2017 Hoa community
- * @license    New BSD License
  */
 class Library extends Test\Unit\Suite
 {
-    public function case_reach_without_composer_without_a_queue()
+    public function case_reach_without_composer_without_a_queue(): void
     {
         $this
             ->given(
@@ -62,7 +59,7 @@ class Library extends Test\Unit\Suite
                     ->isEqualTo('bar');
     }
 
-    public function case_reach_without_composer_with_a_queue()
+    public function case_reach_without_composer_with_a_queue(): void
     {
         $this
             ->given(
@@ -75,7 +72,7 @@ class Library extends Test\Unit\Suite
                     ->isEqualTo('baz');
     }
 
-    public function case_reach_with_composer_without_a_queue_and_a_single_reach()
+    public function case_reach_with_composer_without_a_queue_and_a_single_reach(): void
     {
         $this
             ->given(
@@ -88,7 +85,7 @@ class Library extends Test\Unit\Suite
                     ->isEqualTo('Bar' . DS . 'Baz' . DS . 'qux' . DS);
     }
 
-    public function case_reach_with_composer_without_a_queue_and_a_multiple_reaches()
+    public function case_reach_with_composer_without_a_queue_and_a_multiple_reaches(): void
     {
         $this
             ->given(
@@ -108,7 +105,7 @@ class Library extends Test\Unit\Suite
                     );
     }
 
-    public function case_reach_with_composer_with_a_simple_queue()
+    public function case_reach_with_composer_with_a_simple_queue(): void
     {
         $this
             ->given(
@@ -120,11 +117,11 @@ class Library extends Test\Unit\Suite
             ->string($result)
                 ->isEqualTo(
                     "\r" . 'Bar' . DS . 'Baz' . DS . 'Qux' . DS . 'hello' . RS .
-                    "\r" . dirname(dirname(dirname(dirname(dirname(dirname(__DIR__))))))
+                    "\r" . dirname(__DIR__, 6)
                 );
     }
 
-    public function case_reach_with_composer_with_a_queue()
+    public function case_reach_with_composer_with_a_queue(): void
     {
         $this
             ->given(
@@ -136,7 +133,7 @@ class Library extends Test\Unit\Suite
             ->string($result)
                 ->isEqualTo(
                     "\r" . 'Bar' . DS . 'hello' . DS . 'Mister' . DS . 'Anderson' . RS .
-                    "\r" . dirname(dirname(dirname(dirname(dirname(dirname(__DIR__)))))) . DS . 'Mister' . DS . 'Anderson'
+                    "\r" . dirname(__DIR__, 6) . DS . 'Mister' . DS . 'Anderson'
                 );
     }
 }
