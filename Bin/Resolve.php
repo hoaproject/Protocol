@@ -148,7 +148,7 @@ class Resolve extends Console\Dispatcher\Kit
                 ' is equivalent to:', "\n";
         }
 
-        $resolved = resolve($path, $exists, $unfold);
+        $resolved = Protocol\Protocol::getInstance()->resolve($path, $exists, $unfold);
 
         foreach ((array) $resolved as $r) {
             echo $r, "\n";

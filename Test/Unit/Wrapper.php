@@ -902,7 +902,7 @@ class Wrapper extends Test\Unit\Suite
         $wrapper->dir_opendir('hoa://Test/Vfs/Bar?type=directory', 0);
 
         foreach ($children as $child) {
-            resolve('hoa://Test/Vfs/Bar/' . $child . '?type=file');
+            LUT::getInstance()->resolve('hoa://Test/Vfs/Bar/' . $child . '?type=file');
         }
 
         return $wrapper;

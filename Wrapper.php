@@ -582,24 +582,3 @@ class Wrapper
 stream_wrapper_register('hoa', Wrapper::class);
 
 }
-
-namespace
-{
-
-/**
- * Alias of `Hoa\Protocol::resolve` method.
- *
- * @param   string  $path      Path to resolve.
- * @param   bool    $exists    If `true`, try to find the first that exists,
- *                             else return the first solution.
- * @param   bool    $unfold    Return all solutions instead of one.
- * @return  mixed
- */
-if (!function_exists('resolve')) {
-    function resolve($path, $exists = true, $unfold = false)
-    {
-        return Hoa\Protocol::getInstance()->resolve($path, $exists, $unfold);
-    }
-}
-
-}
