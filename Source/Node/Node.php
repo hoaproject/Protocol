@@ -267,7 +267,7 @@ class Node implements \ArrayAccess, \IteratorAggregate
      * ID of the component.
      * Generic one. Should be overrided in children classes.
      */
-    public function reachId(string $id): void
+    public function reachId(string $id)
     {
         throw new Protocol\Exception(
             'The node %s has no ID support (tried to reach #%s).',
