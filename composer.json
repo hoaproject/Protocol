@@ -32,8 +32,9 @@
     },
     "autoload": {
         "psr-4": {
-            "Hoa\\Protocol\\"   : "Source",
-            "Hoa\\Protocol\\Bin": "Bin"
+            "Hoa\\Protocol\\"      : "Source",
+            "Hoa\\Protocol\\Bin\\" : "Bin",
+            "Hoa\\Protocol\\Test\\": "Test"
         },
         "files": ["Source/Wrapper.php"]
     },
