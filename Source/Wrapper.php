@@ -367,7 +367,7 @@ class Wrapper
         return mkdir(
             static::realPath($path, false),
             $mode,
-            $options | STREAM_MKDIR_RECURSIVE,
+            (bool) ($options | STREAM_MKDIR_RECURSIVE),
             $this->context
         );
     }
@@ -457,7 +457,7 @@ class Wrapper
     /**
      * Get stream resource.
      */
-    public function getStream(): ?resource
+    public function getStream()
     {
         return $this->_stream;
     }
@@ -465,7 +465,7 @@ class Wrapper
     /**
      * Get stream name.
      */
-    public function getStreamName(): ?resource
+    public function getStreamName(): ?string
     {
         return $this->_streamName;
     }
