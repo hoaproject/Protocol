@@ -76,7 +76,7 @@ class Wrapper
      * calling `stream_cast` or `STREAM_CAST_AS_STREAM` when `stream_cast` is
      * called for other uses.
      */
-    public function stream_cast(int $castAs): ?resource
+    public function stream_cast(int $castAs)
     {
         return null;
     }
