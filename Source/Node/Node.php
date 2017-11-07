@@ -149,7 +149,7 @@ class Node implements \ArrayAccess, \IteratorAggregate
      * Resolve a path, i.e. iterate the nodes tree and reach the queue of
      * the path.
      */
-    protected function _resolve(string $path, &$accumulator, string $id = null): ?bool
+    protected function _resolve(string $path, &$accumulator, string $id = null)
     {
         if (substr($path, 0, 6) == 'hoa://') {
             $path = substr($path, 6);
