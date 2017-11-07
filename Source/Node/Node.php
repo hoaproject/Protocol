@@ -207,7 +207,7 @@ class Node implements \ArrayAccess, \IteratorAggregate
     /**
      * Resolve choices, i.e. a reach value has a “;”.
      */
-    protected function _resolveChoice(string $reach, array &$accumulator)
+    protected function _resolveChoice(?string $reach, ?array &$accumulator)
     {
         if (empty($accumulator)) {
             $accumulator = explode(RS, $reach);
