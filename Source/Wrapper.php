@@ -211,7 +211,7 @@ class Wrapper
             $openedPath = fopen(
                 $path,
                 $mode,
-                $options & STREAM_USE_PATH,
+                (bool) ($options & STREAM_USE_PATH),
                 $this->context
             );
         }
