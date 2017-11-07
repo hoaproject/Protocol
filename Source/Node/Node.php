@@ -116,7 +116,7 @@ class Node implements \ArrayAccess, \IteratorAggregate
     /**
      * Get a specific node.
      */
-    public function offsetGet($name): Protocol\Protocol
+    public function offsetGet($name): self
     {
         if (!isset($this[$name])) {
             throw new Protocol\Exception(
@@ -207,7 +207,7 @@ class Node implements \ArrayAccess, \IteratorAggregate
     /**
      * Resolve choices, i.e. a reach value has a “;”.
      */
-    protected function _resolveChoice(string $reach, array &$accumulator): void
+    protected function _resolveChoice(string $reach, array &$accumulator)
     {
         if (empty($accumulator)) {
             $accumulator = explode(RS, $reach);
@@ -341,4 +341,4 @@ class Node implements \ArrayAccess, \IteratorAggregate
 /**
  * Flex entity.
  */
-Consistency::flexEntity('Hoa\Protocol\Node\Node');
+Consistency::flexEntity(Node::class);
